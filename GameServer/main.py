@@ -14,4 +14,5 @@ print "Sarting UDP Server in (",UDP_IP,",",UDP_PORT,")"
 while True:
     data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
     m = p.split(data) #print "Packet recive:", p.match(data), addr
-    print  "Packet recive:", m[0], addr, m[1],"(",m[2],")"
+    if type(int(m[0])) == int:
+    	print  "Packet recive:", m[0], addr, m[1],"(",m[2],")"
