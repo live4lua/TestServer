@@ -20,8 +20,6 @@ function love.load()
 	server.udp:settimeout(0)
 	server.udp:setpeername(address, port)
 
-	math.randomseed(os.time())
-
 	identy = tostring(math.random(99999))
 	identy = identy..tostring(socket.dns.toip(socket.dns.gethostname()))
 	identy = enc(identy)
@@ -43,6 +41,7 @@ function love.draw()
 end
 
 function love.update(dt)
+	math.randomseed(os.time()*(os.time()/12)) -- Mudando a cada Segundo
 	if in_time >= time_send then 
 		if send == 1 then
 
